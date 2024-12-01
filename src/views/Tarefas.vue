@@ -48,9 +48,13 @@ import Tarefa from '../components/Tarefas/Tarefa.vue'
         campoInput:null
       }
     },
+    created(){
+      this.$store.commit('buscaTarefa')
+    },
     methods:{
       handleAddTarefa(){
-        this.$store.commit('adicionarTarefa',this.campoInput)
+        // this.$store.commit('adicionarTarefa',this.campoInput)
+        this.$store.dispatch('adicionarTarefa',this.campoInput)
         this.campoInput=null;
       }
     }
